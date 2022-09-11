@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update]
     resources :customers, except: [:new, :create, :destroy]
     resources :genres, except: [:new, :show, :destroy]
-    get 'homes/top'
+    get '/' => 'homes#top', as: 'top'
     resources :items, except: [:destroy]
   end
   # devise_for :admins, skip: [:registrations, :passwords], controllers: {
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
 # 管理者用
 # URL /admin/sign_in ...
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
