@@ -1,60 +1,27 @@
 Rails.application.routes.draw do
 
-  namespace :public do
+  scope module: 'public' do
     resources :addresses, except: [:show, :new]
-  end
-
-  namespace :public do
     resources :orders, except: [:edit, :update, :destroy]
-    post 'orders/confirm' => 'orders#confirm'
-    get 'orders/complete' => 'orders#complete'
-    # get 'orders/confirm'
-    # get 'orders/complete'
-  end
-
-  namespace :public do
+    post 'orders/confirm'
+    get 'orders/complete'
     resources :cart_items, except: [:new, :show, :edit]
-    delete :'cart_items/destroy_all', to: 'cart_items#destroy_all'
-  end
-
-  namespace :public do
+    delete 'cart_items/destroy_all'
     resources :customers, only: [:show, :edit, :update]
-    get 'customers/unsubscribe' => 'customers#unsubscribe'
-    patch 'customers/withdraw' => 'customers#withdraw'
-  end
-
-  namespace :public do
+    get 'customers/unsubscribe'
+    patch 'customers/withdraw'
     resources :items, only: [:index, :show]
-  end
-
-  namespace :public do
     get 'homes/top'
     get 'homes/about'
   end
 
-  namespace :admin do
-    get 'order_details/update'
-  end
 
   namespace :admin do
+    patch 'order_details/update'
     resources :orders, only: [:show, :update]
-    # get 'orders/show'
-    # get 'orders/update'
-  end
-
-  namespace :admin do
     resources :customers, except: [:new, :create, :destroy]
-  end
-
-  namespace :admin do
     resources :genres, except: [:new, :show, :destroy]
-  end
-
-  namespace :admin do
     get 'homes/top'
-  end
-
-  namespace :admin do
     resources :items, except: [:destroy]
   end
   # devise_for :admins, skip: [:registrations, :passwords], controllers: {
