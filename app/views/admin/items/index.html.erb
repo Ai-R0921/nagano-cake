@@ -10,22 +10,24 @@
     </tr>
   </thead>
   <tbody>
+    <% @items.each do |item| %>
     <tr>
       <td>
-        <p>1</p>
+        <%= item.id %>
       </td>
       <td>
-        <p>洋梨のチーズタルト</p>
+        <%= item.name %>
       </td>
       <td>
-        <p>1,200</p>
+        <%= item.price %>
       </td>
       <td>
-        <p>ケーキ</p>
+        <%= item.genre %>
       </td>
       <td>
-        <p>販売中</p>
+        <%= item.is_active %>
       </td>
     </tr>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>

@@ -1,2 +1,20 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<h3>商品新規登録</h3>
+<%= form_with model:@item do |f| %>
+  <p>商品画像</p>
+  　<%= f.file_field :image, accept: "image/*" %>
+  <p>商品名</p>
+  　<%= f.text_field :name, class:"form-control", placeholder:"商品名" %>
+  <p>商品説明</p>
+  　<%= f.text_area :introduction, class:"form-control", placeholder:"ここに説明文を記述します" %>
+  <p>ジャンル</p>
+  　<select class="form-select" aria-label="Default select example">
+  　  <option selected>--選択してください--</option>
+  　 <option value="1">ケーキ</option>
+  　</select>
+  <p>税抜価格</p>
+  　<%= f.text_field :price, class:"form-control", placeholder:"1000" %>
+  <p>販売ステータス</p>
+  <%= f.submit '新規登録', class:"btn btn-success" %>
+<% end %>
+
+
