@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2022_09_08_113433) do
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -110,7 +109,6 @@ ActiveRecord::Schema.define(version: 2022_09_08_113433) do
   add_foreign_key "addresses", "customers"
   add_foreign_key "cart_items", "customers"
   add_foreign_key "cart_items", "items"
-  add_foreign_key "items", "genres"
   add_foreign_key "order_details", "items"
   add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "customers"

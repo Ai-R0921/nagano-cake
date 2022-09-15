@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-  belongs_to :genres
+  belongs_to :genre
 end
