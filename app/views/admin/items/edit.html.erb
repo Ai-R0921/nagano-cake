@@ -10,5 +10,12 @@
     <%= f.collection_select :genre_id, Genre.all, :id, :name, id:"inputGenreId" %>
   <label for="inputPrice">税抜価格</label>
     <%= f.text_field :price, autofocus: true, id:"inputPrice", class:"form-control" %>
+  <p>販売ステータス</p>
+  　<%= form_with(model: @item, local: true) do |form| %>
+  　   <%= form.radio_button :is_active, :sale, checked: true %>
+  　   <%= form.label :is_active, "販売中", {value: :sale, style: "display: inline-block;"} %>
+  　   <%= form.radio_button :is_active, :sold %>
+  　   <%= form.label :is_active, "販売停止中", {value: :sold, atyle: "display: inline-block;"} %>
+  　<% end %>
   <%= f.submit "変更を保存", class:"btn btn-success" %>
 <% end %>

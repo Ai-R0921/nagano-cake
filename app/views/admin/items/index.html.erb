@@ -1,5 +1,5 @@
 <h2>商品一覧</h2>
-<button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+<a class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;" href="/admin/items/new" role="button">＋</a>
 <table class="table table-hover table-inverse">
   <thead>
     <tr>
@@ -17,16 +17,16 @@
         <%= item.id %>
       </td>
       <td>
-        <%= item.name %>
+        <%= link_to item.name, admin_item_path(item) %>
       </td>
       <td>
         <%= item.price %>
       </td>
       <td>
-        <%= item.genre %>
+        <%= item.genre.name %>
       </td>
       <td>
-        <%= item.is_active %>
+        <%= item.is_active ? '販売中' : '販売停止中' %>
       </td>
     </tr>
     <% end %>

@@ -12,6 +12,12 @@
   <p>税抜価格</p>
   　<%= f.text_field :price, class:"form-control", placeholder:"1000" %>
   <p>販売ステータス</p>
+  　<%= form_with(model: @item, local: true) do |f| %>
+  　   <%= f.radio_button :is_active, :sale, checked: true %>
+  　   <%= f.label :is_active, "販売中", {value: :sale, style: "display: inline-block;"} %>
+  　   <%= f.radio_button :is_active, :sold %>
+  　   <%= f.label :is_active, "販売停止中", {value: :sold, atyle: "display: inline-block;"} %>
+  　<% end %>
   <%= f.submit '新規登録', class:"btn btn-success" %>
 <% end %>
 
