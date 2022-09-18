@@ -1,34 +1,49 @@
-<h2>商品一覧</h2>
-<a class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;" href="/admin/items/new" role="button">＋</a>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td>
-        <%= item.id %>
-      </td>
-      <td>
-        <%= link_to item.name, admin_item_path(item) %>
-      </td>
-      <td>
-        <%= item.price %>
-      </td>
-      <td>
-        <%= item.genre.name %>
-      </td>
-      <td>
-        <%= item.is_active ? '販売中' : '販売停止中' %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col mx-auto">
+            <h2>商品一覧</h2>
+            <div class="text-right">
+            <a class="btn btn-primary rounded-circle px-6 p-0" style="width:3rem;height:3rem;" href="/admin/items/new" role="button">＋</a>
+            </div>
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th>商品ID</th>
+                  <th>商品名</th>
+                  <th>税抜価格</th>
+                  <th>ジャンル</th>
+                  <th>ステータス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @items.each do |item| %>
+                <tr>
+                  <td>
+                    <%= item.id %>
+                  </td>
+                  <td>
+                    <%= link_to item.name, admin_item_path(item) %>
+                  </td>
+                  <td>
+                    <%= item.price %>
+                  </td>
+                  <td>
+                    <%= item.genre.name %>
+                  </td>
+                  <td>
+                    <%= item.is_active ? '販売中' : '販売停止中' %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
