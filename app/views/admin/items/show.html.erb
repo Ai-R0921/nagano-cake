@@ -1,14 +1,46 @@
-<h2>商品詳細</h2>
-
-<% if @item.image.attached? %>
-  <%= image_tag @item.image, size: "200×200" %>
-<% else %>
-  <%= image_tag 'no_image', size: "200×200" %>
-<% end %>
-<p><%= @item.name %></p>
-<p><%= @item.introduction %></p>
-<p><%= @item.genre.name %></p>
-<p><%= @item.price %>円</p>
-<p><%= @item.is_active ? '販売中' : '販売停止中' %></p>
-
-<%= link_to "編集する", edit_admin_item_path(@item), class:"btn btn-success" %>
+<!DOCTYPE html>
+<html>
+  <body>
+    <main>
+      <div class="container">
+        <h3>商品詳細</h3>
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <% if @item.image.attached? %>
+              <%= image_tag @item.image, size: "300×400" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "300×400" %>
+            <% end %>
+          </div>
+          <div class="col-md-2">
+            <p>商品名</p>
+            <p style="line-height:3rem">商品説明</p>
+            <p style="line-height:3rem">ジャンル</p>
+            <p style="line-height:1rem">税込価格<br>(税抜価格)</p>
+            <p style="line-height:4rem">販売ステータス</p>
+          </div>
+          <div class="col-md-6 mr-auto">
+            <div class="mb-4">
+              <%= @item.name %>
+            </div>
+            <div class="mb-5">
+              <%= @item.introduction %>
+            </div>
+            <div class="mb-4">
+              <%= @item.genre.name %>
+            </div>
+            <div class="mb-5">
+              <%= @item.price %>円
+            </div>
+            <div class="mb-3">
+              <%= @item.is_active ? '販売中' : '販売停止中' %>
+            </div>
+          </div>
+          <div class="col text-center mt-5">
+           <%= link_to "編集する", edit_admin_item_path(@item), class:"btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

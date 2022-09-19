@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
     resources :items, only: [:index, :show]
-    get 'homes/top'
-    get 'homes/about'
+    root to: 'homes#top'
+    get '/about' => 'homes#about',as:"about"
   end
 
 
