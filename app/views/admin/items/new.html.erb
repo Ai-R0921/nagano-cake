@@ -13,7 +13,7 @@
             <p style="line-height:2rem">税抜価格</p>
             <p style="line-height:2rem">販売ステータス</p>
           </div>
-          <div class="col-md-6 mr-auto">
+          <div class="col-md-4 mr-auto">
             <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
             <div class="mb-3">
               <%= f.file_field :image, accept: "image/*" %>

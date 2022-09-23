@@ -7,9 +7,9 @@
         <div class="row mt-5">
           <div class="col-md-4">
             <% if @item.image.attached? %>
-              <%= image_tag @item.image, size: "300×400" %>
+              <%= image_tag @item.image, size: "300×200" %>
             <% else %>
-              <%= image_tag 'no_image', size: "300×400" %>
+              <%= image_tag 'noimage', size: "300×200" %>
             <% end %>
           </div>
           <div class="col-md-2">
