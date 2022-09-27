@@ -15,7 +15,7 @@
             </div>
           </div>
         <% end %>
-        <table class="table table-hover table-inverse table-sm">
+        <table class="table table-hover table-inverse table-sm genre_table">
             <thead class="thead-light">
               <tr>
                 <th style="width: 40%">ジャンル</th><th colspan="1"></th>
@@ -27,7 +27,7 @@
                 <td>
                   <%= genre.name %>
                 </td>
-                <td>
+                <td align="right">
                   <%= link_to "編集する", edit_admin_genre_path(genre), class:"btn btn-success" %>
                 </td>
               </tr>
