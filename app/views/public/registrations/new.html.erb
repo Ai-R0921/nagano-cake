@@ -2,19 +2,54 @@
   <h3>新規会員登録</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
-      <div class="row mt-5 mb-3">
+      <div class="row mt-5 mb-2">
         <%= f.label :last_name, "名前", class:"col-2" %>
         <%= f.label :last_name, "(姓)", class:"col-1 text-right" %>
-        <%= f.text_field :last_name, :placeholder => "令和", class:"col-3" %>
+        <%= f.text_field :last_name, :placeholder => "山田", class:"col-3" %>
         <%= f.label :first_name, "(名)", class:"col-1 text-right" %>
-        <%= f.text_field :first_name, :placeholder => "道子", class:"col-3" %>
+        <%= f.text_field :first_name, :placeholder => "花子", class:"col-3" %>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-2">
         <%= f.label :last_name_kana, "フリガナ", class:"col-2" %>
         <%= f.label :last_name_kana, "(セイ)", class:"col-1 text-right" %>
-        <%= f.text_field :last_name_kana, :placeholder => "レイワ", class:"col-3" %>
+        <%= f.text_field :last_name_kana, :placeholder => "ヤマダ", class:"col-3" %>
         <%= f.label :first_name_kana, "(メイ)", class:"col-1 text-right" %>
-        <%= f.text_field :first_name_kana, :placeholder => "ミチコ", class:"col-3" %>
+        <%= f.text_field :first_name_kana, :placeholder => "ハナコ", class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :email, "メールアドレス", class:"col-3" %>
+        <%= f.text_field :email, :placeholder => "sample@example.com", class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-3" %>
+        <%= f.text_field :postal_code, :placeholder => "1234567", class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :address, "住所", class:"col-3" %>
+        <%= f.text_field :address, :placeholder => "東京都港区六本木0-0", class:"col-6" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :telephone_number, "電話番号(ハイフンなし)", class:"col-3" %>
+        <%= f.text_field :telephone_number, :placeholder => "1234567", class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :encrypted_password, "パスワード(6文字以上)", class:"col-3" %>
+        <%= f.text_field :encrypted_password, class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <%= f.label :encrypted_password, "パスワード(確認用)", class:"col-3" %>
+        <%= f.text_field :encrypted_password, class:"col-3" %>
+      </div>
+      <div class="row mb-2">
+        <div class="col-6 text-right">
+        <%= f.submit "新規登録", class:"btn btn-success" %>
+        </div>
+      </div>
+      <div class="row">
+        <h3>既に登録済みの方</h3>
+        <div class="col-3">
+          <a href="/customer/sign_in" >こちら</a>
+        </div>
       </div>
       <% end %>
 </div>
