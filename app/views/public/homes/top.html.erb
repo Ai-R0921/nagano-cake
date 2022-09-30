@@ -25,17 +25,17 @@
       </table>
     </div>
     <div class="col-10 mr-auto">
-      <div style="position: relative; display:inline-block;">
-        <%= image_tag 'topimg.jpg', size: '320x240' %>
-          <div class="row">
-            <div class="col">
-              <h5>ようこそ、ながのCAKEへ！<br>
+      <div class="topimg">
+        <%= image_tag 'topimg.jpg', size: '600x350' %>
+          <!--<div class="row">-->
+          <!--  <div class="col">-->
+              <h5 class="toptext">ようこそ、ながのCAKEへ！<br>
               このサイトは、ケーキ販売のECサイトになります。<br>
               会員でない方も商品の閲覧はできますが、<br>
               購入には会員登録が必要になります。
               </h5>
-            </div>
-          </div>
+          <!--  </div>-->
+          <!--</div>-->
       </div>
     </div>
   </div>
@@ -43,25 +43,28 @@
     <div class="col-10 ml-auto">
       <h2>新着商品</h2>
       <div class="row">
-        <div class="col-2">
-          <%= image_tag 'newitem1.jpg', size: '150x100' %>
+        <div class="col-2 mr-3">
+          <%= image_tag 'newitem1.jpg', size: '160x100' %>
           <p>商品名</p>
           <p>¥0,000</p>
         </div>
-        <div class="col-2">
-          <%= image_tag 'newitem2.jpg',size: '150x100' %>
+        <div class="col-2 mr-3">
+          <%= image_tag 'newitem2.jpg',size: '160x100' %>
           <p>商品名</p>
           <p>¥0,000</p>
         </div>
-        <div class="col-2">
-          <%= image_tag 'newitem3.jpg',size: '150x100' %>
+        <div class="col-2 mr-3">
+          <%= image_tag 'newitem3.jpg',size: '160x100' %>
           <p>商品名</p>
           <p>¥0,000</p>
         </div>
-        <div class="col-2">
-          <%= image_tag 'newitem4.jpg',size: '150x100' %>
+        <div class="col-2 mr-2">
+          <%= image_tag 'newitem4.jpg',size: '160x100' %>
           <p>商品名</p>
           <p>¥0,000</p>
+        </div>
+        <div class="col mt-auto">
+          <%= link_to "全ての商品を見る>",items_path %>
         </div>
       </div>
     </div>
