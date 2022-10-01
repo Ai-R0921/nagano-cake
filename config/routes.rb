@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 
+  get "customers/my_page", to: 'public/customers#show', as:"customer"
+  get "customers/infomation/edit", to: 'public/customers#edit', as:"edit_customer"
+
 scope module: 'public' do
     root to: 'homes#top'
     get '/about' => 'homes#about',as:"about"
@@ -21,7 +24,7 @@ scope module: 'public' do
     patch 'customers/withdraw'
     resources :addresses, except: [:show, :new]
     resources :orders, except: [:edit, :update, :destroy]
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:edit, :update]
     resources :cart_items, except: [:new, :show, :edit]
     resources :items, only: [:index, :show]
   end
