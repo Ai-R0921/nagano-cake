@@ -1,0 +1,28 @@
+<%= form_with model: customer do |f| %>
+  <div class="row mt-5 mb-3">
+    <%= f.label :last_name, "氏名", class:"col-2" %>
+    <%= f.text_field :last_name, autofocus: true, class:"col-2 mr-5" %>
+    <%= f.text_field :first_name, autofocus: true, class:"col-2" %>
+  </div>
+  <div class="row mb-3">
+    <%= f.label :last_name_kana, "フリガナ", class:"col-2" %>
+    <%= f.text_field :last_name_kana, autofocus: true, class:"col-2 mr-5" %>
+    <%= f.text_field :first_name_kana, autofocus: true, class:"col-2" %>
+  </div>
+  <div class="row mb-3">
+    <%= f.label :postal_code, "郵便番号", class:"col-2" %>
+    <%= f.text_field :postal_code, autofocus: true, class:"col-2" %>
+  </div>
+  <div class="row mb-3">
+    <%= f.label :address, "住所", class:"col-2" %>
+    <%= f.text_field :address, autofocus: true, class:"col-6" %>
+  </div>
+  <div class="row mb-3">
+    <%= f.label :telephone_number, "電話番号", class:"col-2" %>
+    <%= f.text_field :telephone_number, autofocus: true, class:"col-2" %>
+  </div>
+  <div class="row mb-5">
+    <%= f.label :email, "メールアドレス", class:"col-2" %>
+    <%= f.text_field :email, autofocus: true, class:"col-2" %>
+  </div>
+<% end %>
