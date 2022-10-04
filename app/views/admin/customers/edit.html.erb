@@ -1,4 +1,30 @@
 <div class="container">
 <h3><%= @customer.full_name %>さんの会員情報編集</h3>
+  <div class="row mt-5">
+    <div class="col-1 mr-2">
+      <p>会員ID</p>
+    </div>
+    <div class="col-2 text-center">
+      <%= @customer.id %>
+    </div>
+  </div>
   <%= render 'public/customers/edit', customer: @customer %>
+  <div class="row">
+    <div class="col-2">
+      <p>会員ステータス</p>
+    </div>
+    <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
+    <div class="mb-4">
+      <%= f.radio_button :is_deleted, :false %>
+      <%= f.label :is_deleted, "有効", {value: false, style: "display: inline-block;"} %>
+      <%= f.radio_button :is_deleted, :true %>
+      <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
+    </div>
+    <div class="row">
+      <div class="col-3">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
