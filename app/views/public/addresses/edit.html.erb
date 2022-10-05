@@ -1,2 +1,19 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="container">
+  <h3>配送先編集</h3>
+  <%= form_with model: @address do |f| %>
+  <div class="row mt-5 mb-3">
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-3" %>
+    <%= f.text_field :postal_code, :placeholder => "0000000", class:"col-2" %>
+  </div>
+  <div class="row mb-3">
+    <%= f.label :address, "住所", class:"col-3" %>
+    <%= f.text_field :address, :placeholder => "東京都港区六本木0-0", class:"col-6" %>
+  </div>
+  <div class="row mb-5">
+    <%= f.label :name, "宛名", class:"col-3" %>
+    <%= f.text_field :name, :placeholder => "山田花子", class:"col-2" %>
+    <div class="col-5 text-right">
+    <%= f.submit "変更内容を保存", class: "btn btn-success" %>
+    </div>
+  </div>
+  <% end %>

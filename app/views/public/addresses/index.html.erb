@@ -9,7 +9,7 @@
     <%= f.label :address, "住所", class:"col-3" %>
     <%= f.text_field :address, :placeholder => "東京都港区六本木0-0", class:"col-6" %>
   </div>
-  <div class="row mb-3">
+  <div class="row mb-5">
     <%= f.label :name, "宛名", class:"col-3" %>
     <%= f.text_field :name, :placeholder => "山田花子", class:"col-2" %>
     <div class="col-5 text-right">
@@ -17,4 +17,31 @@
     </div>
   </div>
   <% end %>
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th style="width: 10%">郵便番号</th>
+            <th style="width: 45%">住所</th>
+            <th style="width: 15%">宛名</th>
+            <th style="width: 30%"><br></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td>
+              <%= link_to "編集する", edit_address_path(address), class:"btn btn-success" %>
+              <%= link_to "削除する", address_path(address), method: :delete, class:"btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
