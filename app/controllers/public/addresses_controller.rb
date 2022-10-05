@@ -1,6 +1,6 @@
 class Public::AddressesController < ApplicationController
   def index
-    # @address = Address.find(params[:id])
+    @address = current_customer
   end
 
   def edit
