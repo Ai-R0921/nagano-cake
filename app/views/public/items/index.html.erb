@@ -24,29 +24,16 @@
       </table>
     </div>
     <div class="col-10">
-      <h2 class="font-weight-bold">商品一覧</h2><h4>(全x件)</h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-2 mr-3">
-      <%= image_tag 'newitem1.jpg', size: '160x100' %>
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-2 mr-3">
-      <%= image_tag 'newitem2.jpg',size: '160x100' %>
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-2 mr-3">
-      <%= image_tag 'newitem3.jpg',size: '160x100' %>
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-2 mr-2">
-      <%= image_tag 'newitem4.jpg',size: '160x100' %>
-      <p>商品名</p>
-      <p>¥0,000</p>
+      <h2 class="font-weight-bold">商品一覧<font size="5">(全x件)</font></h2>
+      <div class="row mt-3">
+        <% @items.each do |item| %>
+        <div class="col-3 pb-5">
+          <%= image_tag item, size: '200x150' %>
+          <%= link_to item.name, item_path(item) %><br>
+          ￥<%= item.price %>
+        </div>
+        <% end %>
+      <%= paginate @items %>
     </div>
   </div>
 </div>
