@@ -19,6 +19,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+            ようこそ、<%= current_customer.last_name %>さん！
+            </ul>
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
               <li class="nav-item ml-auto">
@@ -64,7 +67,7 @@
               </li>
             <% end %>
             </ul>
-            <ul>
+            <ul class="navbar-nav ml-auto">
               <div class="text-right">
               <form class="d-flex">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
