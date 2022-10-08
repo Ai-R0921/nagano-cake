@@ -26,3 +26,19 @@
 .table_th {
     background-color: whitesmoke;
 }
+
+.pagination {
+    justify-content: center;
+}
+.page a,
+.next a,
+.last a,
+.first a,
+.prev a {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.current {
+  font-weight: bold;
+}

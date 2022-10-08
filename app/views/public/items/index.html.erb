@@ -27,14 +27,19 @@
       <h2 class="font-weight-bold">商品一覧<font size="5">(全x件)</font></h2>
       <div class="row mt-3">
         <% @items.each do |item| %>
-        <div class="col-3 pb-5">
+        <div class="col-3 pb-3">
           <%= link_to item_path(item) do %>
-          <%= image_tag item, size: '200x150' %>
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: '200x150' %>
+          <% else %>
+            <%= image_tag 'NO_IMAGE.png', size: '200x150' %>
+          <% end %>
           <%= item.name %><br>
           ￥<%= item.price %>
           <% end %>
         </div>
         <% end %>
+      </div>
       <%= paginate @items %>
     </div>
   </div>
