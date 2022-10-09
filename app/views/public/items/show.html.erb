@@ -41,4 +41,14 @@
         <h4>￥<%= @item.add_tax_price.to_s(:delimited) %><font size="3">(税込)</font></h4>
       </div>
     </div>
+    <div class="row mt-3">
+      <%= form_with model: @cart_item do |f| %>
+        <% if customer_signed_in? %>
+          <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <% end %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.submit "カートに入れる", class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>
