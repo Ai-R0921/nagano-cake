@@ -5,9 +5,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item = current_customer.cart_items.build(cart_item_params)
-    @cart_item.save
+    @cart_item = CartItem.new
   end
 
   private
@@ -16,7 +14,4 @@ class Public::ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :introduction, :price, :is_active)
   end
 
-  def cart_item_params
-    params.require(:cart_item).permit(:item_id, :amount)
-  end
 end
