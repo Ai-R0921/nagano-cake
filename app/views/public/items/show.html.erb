@@ -43,14 +43,10 @@
       <div class="row">
         <div class="col-3">
         <%= form_with model: @cart_item do |f| %>
-          <!--<% if customer_signed_in? %>-->
           <%= f.select :amount, *[1..10], prompt: "個数選択" %>
           <%= f.hidden_field :customer_id, :value => current_customer.id %>
-          <!--<% end %>-->
-        </div>
-        <div class="col-3">
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "カートに入れる", class:"btn btn-success" %>
+          <%= f.submit "カートに入れる", class:"btn btn-success mt-3" %>
         <% end %>
         </div>
       </div>
