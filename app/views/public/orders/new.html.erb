@@ -4,10 +4,18 @@
     <%= form_with model: @order, url: orders_path, method: :post do |f| %>
     <div class="mb-3">
       <h4>支払方法</h4>
-      <%= f.radio_button :payment_method, :クレジットカード %>
-      <%= f.label :payment_method, 'クレジットカード', style: "display:block;" %>
-      <%= f.radio_button :payment_method, :銀行振込 %>
-      <%= f.label :payment_method, '銀行振込' %>
+      <div class="payment">
+        <%= f.radio_button :payment_method, :クレジットカード %>
+        <%= f.label :payment_method, 'クレジットカード'%>
+      </div>
+      <div class="payment">
+        <%= f.radio_button :payment_method, :銀行振込 %>
+        <%= f.label :payment_method, '銀行振込' %>
+      </div>
+    </div>
+    <div class="mb-3">
+      <h4>お届け先</h4>
+
     </div>
     <% end %>
   </div>
