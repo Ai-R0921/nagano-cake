@@ -1,7 +1,7 @@
 <div class="container">
   <h3>注文情報入力</h3>
   <div class="row mt-3">
-    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
     <div class="mb-3">
       <h4>支払方法</h4>
       <div class="payment">
@@ -15,7 +15,33 @@
     </div>
     <div class="mb-3">
       <h4>お届け先</h4>
-
+      <div class="address">
+        <%= f.radio_button :address_number, 1 %>
+        <%= f.label :address_number_1, "ご自身の住所" %>
+        <%= current_customer.address %>
+      </div>
+      <div class="address">
+        <%= f.radio_button :address_number, 2 %>
+        <%= f.label :address_number_2, "登録済み住所から選択" %>
+        <%= f.collection_select :registered, current_customer.address, :id, :address %>
+      </div>
+      <div class="addfress">
+        <%= f.radio_button :address_number, 3 %>
+        <%= f.label :address_number_3, "新しいお届け先" %>
+        <%= f.label :postal_code, "郵便番号(ハイフンなし)", class:"col-3" %>
+        <%= f.text_field :postal_code, :placeholder => "0000000", class:"col-2" %>
+        <!--<div class="row mb-3">-->
+        <%= f.label :address, "住所", class:"col-3" %>
+        <%= f.text_field :address, :placeholder => "東京都港区六本木0-0", class:"col-6" %>
+      <!--</div>-->
+      <!--<div class="row mb-5">-->
+        <%= f.label :name, "宛名", class:"col-3" %>
+        <%= f.text_field :name, :placeholder => "山田花子", class:"col-2" %>
+      <div class="col-5 text-right">
+        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+      </div>
+      </div>
+      </div>
     </div>
     <% end %>
   </div>
