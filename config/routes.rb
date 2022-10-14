@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 scope module: 'public' do
     root to: 'homes#top'
     get '/about' => 'homes#about',as:"about"
-    post 'orders/confirm'
+    post 'orders/confirm' => 'orders#confirm',as:"confirm"
     get 'orders/complete'
     delete 'cart_items/destroy_all'
     get 'customers/unsubscribe'

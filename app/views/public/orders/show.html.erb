@@ -1,2 +1,61 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <h3>注文履歴詳細</h3>
+  <div class="row mt-5">
+    <div class="col-8">
+      <h4>注文情報</h4>
+      <table class="table table-bordered">
+        <tr>
+          <td class="table_th" style="width: 170px">注文日</td>
+          <!--<td></td>-->
+        </tr>
+        <tr>
+          <td class="table_th">配送先</td>
+          <!--<td></td>-->
+        </tr>
+        <tr>
+          <td class="table_th">支払方法</td>
+          <!--<td></td>-->
+        </tr>
+        <tr>
+          <td class="table_th">ステータス</td>
+          <!--<td></td>-->
+        </tr>
+      </table>
+    </div>
+    <div class="col-4">
+      <h4>請求情報</h4>
+      <table class="table table-bordered">
+        <tr>
+          <td class="table_th" style="width: 170px">商品合計</td>
+          <!--<td></td>-->
+        </tr>
+        <tr>
+          <td class="table_th">配送料</td>
+          <!--<td></td>-->
+        </tr>
+        <tr>
+          <td class="table_th">ご請求額</td>
+          <!--<td></td>-->
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-9">
+    <h4>注文内容</h4>
+      <table class="table table-bordered">
+        <thead class="table_th">
+          <tr>
+            <th style="width: 60%">商品</th>
+            <th style="width: 20%">単価(税込)</th>
+            <th style="width: 10%">個数</th>
+            <th style="width: 10%">小計</th>
+          </tr>
+        </thead>
+        <!--<tbody>-->
+        <!--  <each文で注文内容を表示>-->
+        <!--</tbody>-->
+      </table>
+    </div>
+  </div>
+</div>

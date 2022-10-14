@@ -24,7 +24,7 @@
       </table>
     </div>
     <div class="col-10">
-      <h2 class="font-weight-bold">商品一覧<font size="5">(全x件)</font></h2>
+      <h2 class="font-weight-bold">商品一覧<font size="5">(全<%= @items.all.count %>件)</font></h2>
       <div class="row mt-3">
         <% @items.each do |item| %>
         <div class="col-3 pb-3">
