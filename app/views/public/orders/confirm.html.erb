@@ -42,7 +42,7 @@
         </tr>
         <tr>
           <td class="table_th">請求金額</td>
-          <td><%= @order.total_payment %></td>
+          <td><%= @order.total_payment.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
