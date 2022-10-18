@@ -8,11 +8,16 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    status = params[:order][:status].to_i
+    @order.update(status: status)
+    redirect_to admin_order_path(@order)
+
   end
 
 
   private
-  def oeder_params
+  def order_params
     params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_payment, :postage, :status)
   end
 end
