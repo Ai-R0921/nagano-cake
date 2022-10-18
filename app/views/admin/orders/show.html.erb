@@ -4,31 +4,34 @@
     <table class="table table-borderless">
       <tbody>
         <tr>
-          <td style="width: 140px">購入者</td>
-          <!--<td></td>-->
+          <td class="font-weight-bold", style="width: 150px">購入者</td>
+          <td><%= @order.customer.full_name %></td>
         </tr>
         <tr>
-          <td>注文日</td>
-          <!--<td></td>-->
+          <td class="font-weight-bold">注文日</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
-          <td>配送先</td>
-          <!--<td></td>-->
+          <td class="font-weight-bold">配送先</td>
+          <td>
+            〒<%= @order.postal_code %>  <%= @order.address %><br>
+            <%= @order.name %>
+          </td>
         </tr>
         <tr>
-          <td>支払方法</td>
-          <!--<td></td>-->
+          <td class="font-weight-bold">支払方法</td>
+          <td><%= @order.payment_method %></td>
         </tr>
         <tr>
-          <td>注文ステータス</td>
-          <!--<td></td>-->
+          <td class="font-weight-bold">注文ステータス</td>
+          <td><%= @order.status %></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="row mt-3">
-    <div class="col mr-auto">
-      <table class="table table-hover table-inverse">
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-borderless">
         <thead class="thead-light">
           <tr>
             <th>商品名</th>
@@ -38,10 +41,38 @@
             <th>製作ステータス</th>
           </tr>
         </thead>
-        <!--<tbody>-->
-        <!--  each文でデータを取り出す-->
-        <!--</tbody>-->
+        <tbody>
+          <% @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal.to_s(:delimited) %></td>
+            <td><%= order_detail.make_status %></td>
+          </tr>
+          <% end %>
+        </tbody>
       </table>
+    </div>
+    <div class="col-4 align-items-bottom">
+      <!--<div class="absolute" style="position: absolute; bottom: 0;">-->
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td class="font-weight-bold", style="width: 150px">商品合計</td>
+              <td><%= @total.round.to_s(:delimited) %>円</td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">送料</td>
+              <td><%= @order.postage %>円</td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">請求金額合計</td>
+              <td><%= @order.total_payment.to_s(:delimited) %>円</td>
+            </tr>
+          </tbody>
+        </table>
+      <!--</div>-->
     </div>
   </div>
 </div>
