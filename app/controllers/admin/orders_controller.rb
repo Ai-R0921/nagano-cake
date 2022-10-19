@@ -12,7 +12,10 @@ class Admin::OrdersController < ApplicationController
     status = params[:order][:status].to_i
     @order.update(status: status)
     redirect_to admin_order_path(@order)
-
+    # @order_details = @order.order_details
+    # make_status = params[:order_details][:make_status].to_i
+    # @order_details.update(status: status)
+    # redirect_to admin_order_path(@order)
   end
 
 

@@ -39,26 +39,19 @@
     <div class="col-10 ml-auto">
       <h2>新着商品</h2>
       <div class="row">
-        <div class="col-2 mr-3">
-          <%= image_tag 'newitem1.jpg', size: '160x100' %>
-          <p>商品名</p>
-          <p>¥0,000</p>
+        <% @items.each do |item| %>
+        <div class="col-2 mr-4">
+          <%= link_to item_path(item) do %>
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: '170x110' %>
+          <% else %>
+            <%= image_tag 'NO_IMAGE.png', size: '170x110' %>
+          <% end %>
+          <%= item.name %><br>
+          ￥<%= item.price %>
+          <% end %>
         </div>
-        <div class="col-2 mr-3">
-          <%= image_tag 'newitem2.jpg',size: '160x100' %>
-          <p>商品名</p>
-          <p>¥0,000</p>
-        </div>
-        <div class="col-2 mr-3">
-          <%= image_tag 'newitem3.jpg',size: '160x100' %>
-          <p>商品名</p>
-          <p>¥0,000</p>
-        </div>
-        <div class="col-2 mr-2">
-          <%= image_tag 'newitem4.jpg',size: '160x100' %>
-          <p>商品名</p>
-          <p>¥0,000</p>
-        </div>
+        <% end %>
         <div class="col mt-auto">
           <%= link_to "全ての商品を見る>",items_path %>
         </div>
