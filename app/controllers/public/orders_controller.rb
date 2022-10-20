@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.full_name
     elsif params[:order][:address_number] == "2"
-      if Address.exists?(name: params[:order][:registered])
+      if Address.exists?(id: params[:order][:registered])
         @order.postal_code = Address.find(params[:order][:registered]).postal_code
         @order.address = Address.find(params[:order][:registered]).address
         @order.name = Address.find(params[:order][:registered]).name
@@ -18,7 +18,7 @@ class Public::OrdersController < ApplicationController
         render :new
       end
     elsif params[:order][:address_number] == "3"
-      address_new = current_customer.Address.new(address_params)
+      address_new = current_customer.addresses.new(address_params)
       if address_new.save
       else
         render :new
@@ -59,6 +59,9 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+    @total = @order_details.inject(0) { |sum, item| sum + item.subtotal }
+    @order.postage = 800
+    @order.total_payment = @order.postage + @total.round.to_i
   end
 
 
@@ -69,6 +72,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:customer_id, :name, :postal_code, :address)
+    params.require(:order).permit(:customer_id, :name, :postal_code, :address)
   end
 end
