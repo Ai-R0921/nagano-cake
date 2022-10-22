@@ -33,11 +33,11 @@ scope module: 'public' do
 
 namespace :admin do
     get '/' => 'homes#top', as: 'top'
-    patch 'order_details/update'
     resources :orders, only: [:show, :update]
     resources :customers, except: [:new, :create, :destroy]
     resources :genres, except: [:new, :show, :destroy]
     resources :items, except: [:destroy]
+    resources :order_details, only: [:update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

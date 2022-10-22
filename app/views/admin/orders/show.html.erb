@@ -26,7 +26,7 @@
           <td class="font-weight-bold">注文ステータス</td>
           <td>
             <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
-            <%= f.select :status, Order.statuses %>
+            <%= f.select :status, Order.statuses, selected: Order.statuses[@order.status] %>
             <%= f.submit "更新", class:"btn btn-success" %>
             <% end %>
           </td>
@@ -54,8 +54,8 @@
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal.to_s(:delimited) %></td>
             <td>
-              <%= form_with model: order_detail, url: admin_order_path(@order), method: :patch do |f| %>
-              <%= f.select :make_status, OrderDetail.make_statuses %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(@order), method: :patch do |f| %>
+              <%= f.select :make_status, OrderDetail.make_statuses, selected: OrderDetail.make_statuses[order_detail.make_status] %>
               <%= f.submit "更新", class:"btn btn-success" %>
               <% end %>
             </td>
