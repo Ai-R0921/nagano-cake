@@ -12,7 +12,6 @@ class Admin::OrdersController < ApplicationController
     status = (params[:order][:status]).to_i
     @order.update(status: status)
     redirect_to admin_order_path(@order)
-
   end
 
 

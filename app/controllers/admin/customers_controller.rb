@@ -20,6 +20,12 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def history
+    @customer = Customer.find(params[:id])
+    @orders = @customer.orders
+    @order_details = @orders.order_details
+  end
+
 
   private
   def customer_params

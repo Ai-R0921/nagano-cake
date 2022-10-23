@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "customers/my_page", to: 'public/customers#show', as:"customer"
   get "customers/infomation/edit", to: 'public/customers#edit', as:"edit_customer"
+  get "admin/customer/:id/orders", to: 'admin/customers#history', as:"customer_orders"
 
 scope module: 'public' do
     root to: 'homes#top'
