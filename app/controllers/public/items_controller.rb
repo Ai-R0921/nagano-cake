@@ -2,7 +2,12 @@ class Public::ItemsController < ApplicationController
   before_action :authenticate_customer!, except: [:index, :show]
 
   def index
-    @items = Item.page(params[:page]).per(8)
+    @results = @q.result
+    if @results == nil
+      @items = Item.page(params[:page]).per(8)
+    else
+      @items = @results.page(params[:page]).per(8)
+    end
   end
 
   def show

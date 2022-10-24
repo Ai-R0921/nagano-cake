@@ -1,0 +1,2 @@
+module Genres::SearchesHelper
+end

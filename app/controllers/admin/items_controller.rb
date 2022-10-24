@@ -1,6 +1,13 @@
 class Admin::ItemsController < ApplicationController
+  before_action :set_q
+
   def index
-    @items = Item.page(params[:page]).per(8)
+    @results = @q.result
+    if @results == nil
+      @items = Item.page(params[:page]).per(8)
+    else
+      @items = @results.page(params[:page]).per(8)
+    end
   end
 
   def new
@@ -30,9 +37,15 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_item_path(@item)
   end
 
+
+
   private
   def item_params
     params.require(:item).permit(:image, :name, :introduction, :price, :is_active, :genre_id)
+  end
+
+  def set_q
+    @q = Item.ransack(params[:q])
   end
 
 

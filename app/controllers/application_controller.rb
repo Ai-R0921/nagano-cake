@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_admin!, if: :admin_url
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_q
 
   def admin_url
     request.fullpath.include?("/admin")
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_top_path
     end
+  end
+
+  def set_q
+    @q = Item.ransack(params[:q])
   end
 
 end
