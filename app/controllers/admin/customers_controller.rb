@@ -22,8 +22,7 @@ class Admin::CustomersController < ApplicationController
 
   def history
     @customer = Customer.find(params[:id])
-    @orders = @customer.orders
-    @order_details = @orders.order_details
+    @orders = @customer.orders.page(params[:page]).per(8)
   end
 
 
