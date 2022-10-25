@@ -1,7 +1,7 @@
 <div class="container">
   <h3>会員情報編集</h3>
   <%= form_with model: @customer do |f| %>
-  <div class="row mt-5 mb-3">
+  <div class="row mt-3 mb-3">
     <%= f.label :last_name, "氏名", class:"col-2" %>
     <%= f.text_field :last_name, autofocus: true, class:"col-2 mr-5" %>
     <%= f.text_field :first_name, autofocus: true, class:"col-2" %>

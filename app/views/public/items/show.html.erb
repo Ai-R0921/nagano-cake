@@ -1,28 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-2 mr-auto">
-      <table class="table table-border">
-        <thead>
-          <tr>
-            <th>ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>ケーキ</th>
-          </tr>
-          <tr>
-            <th>焼き菓子</th>
-          </tr>
-          <tr>
-            <th>プリン</th>
-          </tr>
-          <tr>
-            <th>キャンディ</th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <%= render 'sidebar', genres: @genres %>
     <div class="col-4">
       <% if @item.image.attached? %>
         <%= image_tag @item.image, size: '300x200' %>
