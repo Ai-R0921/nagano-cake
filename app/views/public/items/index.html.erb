@@ -2,7 +2,11 @@
   <div class="row">
     <%= render 'sidebar', genres: @genres %>
     <div class="col-10">
+      <% if params[:genre_id] %>
+      <h2 class="font-weight-bold"><%= @genre.name %>一覧<font size="5">(全<%= @items.all.count %>件)</font></h2>
+      <% else %>
       <h2 class="font-weight-bold">商品一覧<font size="5">(全<%= @items.all.count %>件)</font></h2>
+      <% end %>
       <div class="row mt-3">
         <% @items.each do |item| %>
         <div class="col-3 pb-3">

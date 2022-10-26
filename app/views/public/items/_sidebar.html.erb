@@ -8,7 +8,7 @@
     <tbody>
       <% genres.each do |genre| %>
       <tr>
-        <th><%= link_to genre.name, items_path %></th>
+        <th><%= link_to genre.name, items_path(genre_id: genre.id) %></th>
       </tr>
     <% end %>
     </tbody>
