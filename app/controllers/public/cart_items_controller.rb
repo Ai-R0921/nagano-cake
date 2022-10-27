@@ -25,9 +25,17 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.save
-    redirect_to cart_items_path
+    @cart_item = current_customer.cart_items.build(cart_item_params)
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+    if cart_item.item_id == @cart_item.item_id
+      new_amount = cart_item.amount + @cart_item.amount
+      cart_item.update_attribute(:amount, new_amount)
+      @cart_item.delete
+    end
+  end
+  @cart_item.save
+  redirect_to :cart_items
   end
 
   private

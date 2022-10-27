@@ -23,7 +23,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    new_admin_session_path
+    case resource
+    when :customer
+      root_path
+    when :admin
+      new_admin_session_path
+    end
   end
 
   def set_q
