@@ -27,6 +27,7 @@ class Public::OrdersController < ApplicationController
       end
     end
     @cart_items = current_customer.cart_items.all
+    # @order.payment_methods_i18n = @order.payment_method_id
     @order.postage = 800
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order.total_payment = @order.postage + @total.round.to_i

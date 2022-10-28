@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   }
 
   enum payment_method: {
-    "クレジットカード":0, "銀行振込":1
+    credit_card: 0, transfer: 1
   }
 
   has_many :order_details, dependent: :destroy

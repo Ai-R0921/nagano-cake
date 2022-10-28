@@ -5,11 +5,11 @@
       <%= form_with model: @order, url: confirm_path, method: :post, local: true do |f| %>
         <h4 class="font-weight-bold">支払方法</h4>
         <p>
-          <%= f.radio_button :payment_method, :クレジットカード %>
-          <%= f.label :payment_method, 'クレジットカード'%>
+          <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: "checked" %>
+          <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
         <br>
-          <%= f.radio_button :payment_method, :銀行振込 %>
-          <%= f.label :payment_method, '銀行振込' %>
+          <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+          <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
         </p>
         <h4 class="font-weight-bold">お届け先</h4>
           <%= f.radio_button :address_number, 1, checked: "checked" %>
